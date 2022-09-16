@@ -1,4 +1,5 @@
 import React from "react";
+import Buttons from "./Buttons.js"
 import piggy from "../assets/porco.png";
 
 const Nav = () => {
@@ -11,6 +12,7 @@ const Nav = () => {
 			<span className="normalText">
 				A React App for County Fair Hog Fans
 			</span>
+			<Buttons />
 		</div>
 	);
 };
