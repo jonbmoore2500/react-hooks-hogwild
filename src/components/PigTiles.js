@@ -19,7 +19,7 @@ function PigTiles({data, selectedPig, onSetSelectedPig}) {
                     return (
                     <div className="pigtile" key={hog.name}>
                         <h2>{hog.name}</h2>
-                        <img src={hog.image}/>
+                        <img src={hog.image} alt={hog.name}/>
                         <button onClick={() => handleHideInfo(hog.name)}>Hide Info</button>
                         <h4>Specialty: {hog.specialty}</h4>
                         <h4>Weight: {hog.weight}</h4>
@@ -31,7 +31,7 @@ function PigTiles({data, selectedPig, onSetSelectedPig}) {
                 return (
                 <div className="pigtile" key={hog.name}>
                     <h2>{hog.name}</h2>
-                    <img src={hog.image}/>
+                    <img src={hog.image} alt={hog.name}/>
                     <button onClick={() => handleInfoDisp(hog.name)}>Show More</button>
                 </div>
                 )}
