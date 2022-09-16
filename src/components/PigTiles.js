@@ -1,9 +1,19 @@
 import React, {useState} from "react"
 
-function PigTiles() {
+function PigTiles({data}) {
+    
+
+
 
     return (
-        <h1>PigTiles Component</h1>
+        <div className="pigtile">
+            {data.map((hog) => (
+                <div className="pigtile">
+                    <h2>{hog.name}</h2>
+                    <img src={hog.image}/>
+                </div>
+            ))}
+        </div>
     )
 
 }
