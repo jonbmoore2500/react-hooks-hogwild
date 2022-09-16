@@ -21,10 +21,22 @@ function App() {
 		const filteredPigs = hogs.filter((pig) => !newStatus || pig.greased === true)
 		setDispPigs(filteredPigs)
 	}
-	function onSortClick(newStatus) {
+	function onSortNameClick(newStatus) {
 		setSortBtnStatus(newStatus)
-		const sortType = newStatus ? "name" : "weight"
-		const sortedPigs = dispPigs.sort((a, b) => a[sortType] - b[sortType])
+		const sortedPigs = dispPigs.sort((a, b) => {
+			const nameA = a.name.toUpperCase()
+			const nameB = b.name.toUpperCase()
+			if (nameA < nameB) {
+				return -1
+			} else {
+				return 1
+			}
+		})
+		setDispPigs(sortedPigs)
+	}
+	function onSortWeightClick(newStatus) {
+		setSortBtnStatus(newStatus)
+		const sortedPigs = dispPigs.sort((a, b) => a.weight - b.weight)
 		setDispPigs(sortedPigs)
 	}
 
@@ -35,7 +47,7 @@ function App() {
 	
 	return (
 		<div className="App">
-			<Nav onGreasedClick={onGreasedClick} onSortClick={onSortClick} greasedBtnStatus={greasedBtnStatus} sortBtnStatus={sortBtnStatus} />
+			<Nav onGreasedClick={onGreasedClick} onSortNameClick={onSortNameClick} onSortWeightClick={onSortWeightClick} greasedBtnStatus={greasedBtnStatus} sortBtnStatus={sortBtnStatus} />
 			<PigTiles data={dispPigs} selectedPig={selectedPig} onSetSelectedPig={onSetSelectedPig} />
 		</div>
 	);

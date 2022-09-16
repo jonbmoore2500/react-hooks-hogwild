@@ -2,13 +2,17 @@ import React from "react";
 import Buttons from "./Buttons.js"
 import piggy from "../assets/porco.png";
 
-const Nav = ({greasedBtnStatus, sortBtnStatus, onGreasedClick, onSortClick}) => {
+const Nav = ({greasedBtnStatus, sortBtnStatus, onGreasedClick, onSortNameClick, onSortWeightClick}) => {
 	
 	function onGreasedClickNav(newStatus) {
 		onGreasedClick(newStatus)
 	}
 	function onSortClickNav(newStatus) {
-		onSortClick(newStatus)
+		if (newStatus) {
+			onSortNameClick(newStatus)
+		} else {
+			onSortWeightClick(newStatus)
+		}
 	}
 	
 	
