@@ -13,11 +13,11 @@ function PigTiles({data, selectedPig, onSetSelectedPig}) {
 
 
     return (
-        <div className="pigtile">
+        <div className="ui cards">
             {data.map((hog) => {
                 if (selectedPig.includes(hog.name)) {
                     return (
-                    <div className="pigtile" key={hog.name}>
+                    <div className="ui card" key={hog.name}>
                         <h2>{hog.name}</h2>
                         <img src={hog.image} alt={hog.name}/>
                         <button onClick={() => handleHideInfo(hog.name)}>Hide Info</button>
@@ -29,7 +29,7 @@ function PigTiles({data, selectedPig, onSetSelectedPig}) {
                     )
                 } else {
                 return (
-                <div className="pigtile" key={hog.name}>
+                <div className="ui card" key={hog.name}>
                     <h2>{hog.name}</h2>
                     <img src={hog.image} alt={hog.name}/>
                     <button onClick={() => handleInfoDisp(hog.name)}>Show More</button>
